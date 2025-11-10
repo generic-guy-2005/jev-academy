@@ -1,11 +1,11 @@
-<section class="bg-blue-50 bg-[url(assets/breathtaking-view-snowy-mountains-cloudy-sky-patagonia-chile.jpg)] relative py-20 overflow-hidden bg-cover bg-center m-8 rounded-xl">
-    <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
+<section class="bg-blue-50 bg-local bg-[url(assets/breathtaking-view-snowy-mountains-cloudy-sky-patagonia-chile.jpg)] relative overflow-hidden bg-cover bg-center m-8 rounded-xl">
+    <div class="flex flex-col md:flex-row items-start justify-between py-20 px-20">
         <div class="md:w-1/2 text-center md:text-left mb-8 md:mb-0">
             <span class="text-sm font-semibold text-blue-600 uppercase tracking-wide">Sekali Masuk</span>
             <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mt-2 mb-4">
-                Langsung Jadi <span class="bg-linear-to-r from-cyan-500 to-blue-100 bg-clip-text text-5xl font-extrabold text-transparent">Elit Global</span>
+                Langsung Jadi <span class="bg-linear-to-r from-cyan-500 to-blue-800 bg-clip-text text-5xl font-extrabold text-transparent">Elit Global</span>
             </h1>
-            <p class="text-lg text-shadow-lg text-white mb-8">
+            <p class="text-lg text-shadow-lg text-slate-950 mb-8">
                 Jadilah sang penguasa se-ngawi semesta dan kontrol dunia dengan leluasa
             </p>
             <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center md:justify-start">
@@ -14,8 +14,8 @@
                 </button>
             </div>
         </div>
-        <div class="md:w-1/2 flex justify-center">
-            <img src="assets\677506122e8dd9a4eaee785abc81ffe7.jpg" alt="Student learning" class="rounded-lg shadow-xl max-w-full h-auto">
+        <div class="md:w-1/2 absolute bottom-0 right-0">
+            <img src="assets\pngegg.png" alt="Student learning" class="rounded-lg shadow-xl max-w-full h-auto">
         </div>
     </div>
 </section>
@@ -26,7 +26,9 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <div class="bg-blue-600 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-1 text-center">
                 <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-paint-brush text-blue-600 text-2xl"></i>
+                    <i class="fas fa-paint-brush text-blue-600 text-2xl">
+                        <img src="assets\renewable-energy.png" alt="">
+                    </i>
                 </div>
                 <h3 class="text-xl font-semibold text-white mb-2">Electrical Engineering</h3>
                 <p class="text-white text-sm">7 Programs | 200+ Courses</p>
@@ -34,7 +36,9 @@
 
             <div class="bg-amber-600 text-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-1 text-center">
                 <div class="w-16 h-16 bg-amber-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-atom text-white text-2xl"></i>
+                    <i class="fas fa-atom text-white text-2xl">
+                        <img src="assets\engineering.png" alt="">
+                    </i>
                 </div>
                 <h3 class="text-xl font-semibold mb-2">Civil Engineering</h3>
                 <p class="text-blue-100 text-sm">3 Programs | 100+ Courses</p>
@@ -42,7 +46,9 @@
 
             <div class="bg-zinc-800 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-1 text-center">
                 <div class="w-16 h-16 bg-zinc-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-laptop-code text-purple-600 text-2xl"></i>
+                    <i class="fas fa-laptop-code text-purple-600 text-2xl">
+                        <img src="assets\piston.png" alt="">
+                    </i>
                 </div>
                 <h3 class="text-xl font-semibold text-white mb-2">Mechanical Engineering</h3>
                 <p class="text-white text-sm">3 Programs | 100+ Courses</p>
@@ -50,7 +56,9 @@
 
             <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-1 text-center">
                 <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-globe-americas text-green-600 text-2xl"></i>
+                    <i class="fas fa-globe-americas text-green-600 text-2xl">
+                        <img src="assets\it-department.png" alt="">
+                    </i>
                 </div>
                 <h3 class="text-xl font-semibold text-gray-800 mb-2">Information Technology</h3>
                 <p class="text-gray-600 text-sm">4 Programs | 300+ Courses</p>
@@ -58,7 +66,9 @@
 
             <div class="bg-red-600 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-1 text-center">
                 <div class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-globe-americas text-green-600 text-2xl"></i>
+                    <i class="fas fa-globe-americas text-green-600 text-2xl">
+                        <img src="assets\document.png" alt="">
+                    </i>
                 </div>
                 <h3 class="text-xl font-semibold text-white mb-2">Accounting</h3>
                 <p class="text-white text-sm">3 Programs | 250+ Courses</p>
@@ -66,7 +76,9 @@
 
             <div class="bg-violet-900 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-1 text-center">
                 <div class="w-16 h-16 bg-violet-800 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-globe-americas text-green-600 text-2xl"></i>
+                    <i class="fas fa-globe-americas text-green-600 text-2xl">
+                        <img src="assets\commerce.png" alt="">
+                    </i>
                 </div>
                 <h3 class="text-xl font-semibold text-white mb-2">Commercial Administration</h3>
                 <p class="text-white text-sm">5 Programs | 350+ Courses</p>
@@ -74,7 +86,9 @@
 
             <div class="bg-green-700 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-1 text-center">
                 <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-globe-americas text-green-600 text-2xl"></i>
+                    <i class="fas fa-globe-americas text-green-600 text-2xl">
+                        <img src="assets\translating.png" alt="">
+                    </i>
                 </div>
                 <h3 class="text-xl font-semibold text-white mb-2">English Department</h3>
                 <p class="text-white text-sm">2 Programs | 100+ Courses</p>
@@ -82,7 +96,9 @@
 
             <div class="bg-black p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-1 text-center">
                 <div class="w-16 h-16 bg-zinc-800 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-globe-americas text-green-600 text-2xl"></i>
+                    <i class="fas fa-globe-americas text-green-600 text-2xl">
+                        <img src="assets\application.png" alt="">
+                    </i>
                 </div>
                 <h3 class="text-xl font-semibold text-white mb-2">Many More!</h3>
                 <p class="text-white text-sm">Browse</p>
@@ -94,7 +110,7 @@
 <section class="py-16 bg-white">
     <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
         <div class="md:w-1/2 mb-8 md:mb-0">
-            <img src="assets\677506122e8dd9a4eaee785abc81ffe7.jpg" alt="Students learning together" class="rounded-lg shadow-xl max-w-full h-auto">
+            <img src="assets\children-studying-outdoors.jpg" alt="Students learning together" class="rounded-lg shadow-xl max-w-full h-auto">
         </div>
         <div class="md:w-1/2 md:pl-12 text-center md:text-left">
             <span class="text-sm font-semibold text-blue-600 uppercase tracking-wide">Kenapa</span>
