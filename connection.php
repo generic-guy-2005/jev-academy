@@ -9,7 +9,5 @@
     if($connection -> connect_error){
         echo "Connection Timed Out: " . $connection -> connect_error;
         exit;
-    } else {
-        echo "Connection Established";
     }
 ?>

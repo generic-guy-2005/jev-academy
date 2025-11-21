@@ -1,6 +1,6 @@
 <section class="bg-blue-50 bg-local bg-[url(assets/breathtaking-view-snowy-mountains-cloudy-sky-patagonia-chile.jpg)] relative overflow-hidden bg-cover bg-center m-8 rounded-xl">
     <div class="flex flex-col md:flex-row items-start justify-between py-20 px-20">
-        <div class="md:w-1/2 text-center md:text-left mb-8 md:mb-0">
+        <div class="glassmorphism-element md:w-1/2 text-center md:text-left mb-8 md:mb-0 p-6">
             <span class="text-sm font-semibold text-blue-600 uppercase tracking-wide">Sekali Masuk</span>
             <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mt-2 mb-4">
                 Langsung Jadi <span class="bg-linear-to-r from-cyan-500 to-blue-800 bg-clip-text text-5xl font-extrabold text-transparent">Elit Global</span>
@@ -9,9 +9,9 @@
                 Jadilah sang penguasa se-ngawi semesta dan kontrol dunia dengan leluasa
             </p>
             <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center md:justify-start">
-                <button class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold shadow-lg hover:bg-blue-700 transition duration-300" href="">
+                <a class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold shadow-lg hover:bg-blue-700 transition duration-300" href="login.php">
                     Nak Ikot
-                </button>
+                </a>
             </div>
         </div>
         <div class="md:w-1/2 absolute bottom-0 right-0">

@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['id'])){
+        header("Location: login.php");
+        exit;
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,6 +21,44 @@
     <style>
         * {
             font-family: 'Inter', 'Courier New', Courier, monospace;
+        }
+
+        .glassmorphism-element {
+            backdrop-filter: blur(8px) saturate(100%);
+            -webkit-backdrop-filter: blur(8px) saturate(100%);
+            background: rgba(253, 244, 227, 0.08);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 4px 4px 20px 0 rgba(120, 53, 15, 0.1),
+                inset 0 0 150px rgba(245, 158, 11, 0.05),
+                inset 0px 0px 4px 2px rgba(255, 255, 255, 0.15);
+        }
+
+        /* Reflection overlay for realism using pseudo-elements */
+        .glassmorphism-element::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            border-radius: inherit;
+            background: linear-gradient(to left top, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 50%);
+            z-index: 1;
+        }
+
+        .glassmorphism-element::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            border-radius: inherit;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 100%);
+            z-index: 1;
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
@@ -124,7 +170,7 @@
                 <h4 class="text-lg font-semibold text-white mb-4">Parani Authornya</h4>
                 <a href="https://github.com/generic-guy-2005/jev-academy" class="hover:text-blue-500 transition duration-200">GitHub</a><br>
                 <a href="#" class="hover:text-blue-500 transition duration-200">Email</a>
-                
+
                 <div class="flex space-x-4">
                     <a href="#" class="text-gray-400 hover:text-blue-500 text-xl"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="text-gray-400 hover:text-blue-500 text-xl"><i class="fab fa-twitter"></i></a>

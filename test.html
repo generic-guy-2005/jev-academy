@@ -1,0 +1,83 @@
+<style>
+    .auth-wrapper {
+        width: 350px;
+        height: 380px;
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+
+    .auth-slider {
+        width: 700px;
+        /* 350px * 2 sections */
+        height: 100%;
+        display: flex;
+        transition: transform 0.45s ease;
+    }
+
+    .auth-section {
+        width: 350px;
+        padding: 30px;
+        box-sizing: border-box;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .auth-wrapper.show-signup .auth-slider {
+        transform: translateX(-350px);
+    }
+
+    button {
+        cursor: pointer;
+        padding: 10px;
+        border: none;
+        background: #4b8aff;
+        color: white;
+        border-radius: 6px;
+    }
+
+    button.toSignup,
+    button.toSignin {
+        background: none;
+        color: #4b8aff;
+        padding: 0;
+    }
+</style>
+
+<div class="auth-wrapper">
+    <div class="auth-slider">
+
+        <!-- Sign In -->
+        <div class="auth-section">
+            <h2>Sign In</h2>
+            <input type="text" placeholder="Email">
+            <input type="password" placeholder="Password">
+            <button>Login</button>
+            <p>Don't have an account? <button class="toSignup">Sign Up</button></p>
+        </div>
+
+        <!-- Sign Up -->
+        <div class="auth-section">
+            <h2>Sign Up</h2>
+            <input type="text" placeholder="Email">
+            <input type="password" placeholder="Password">
+            <input type="password" placeholder="Confirm Password">
+            <button>Create Account</button>
+            <p>Already have an account? <button class="toSignin">Sign In</button></p>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    document.querySelector(".toSignup").onclick = () => {
+        document.querySelector(".auth-wrapper").classList.add("show-signup");
+    };
+
+    document.querySelector(".toSignin").onclick = () => {
+        document.querySelector(".auth-wrapper").classList.remove("show-signup");
+    };
+</script>
