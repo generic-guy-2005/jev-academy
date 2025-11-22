@@ -107,7 +107,7 @@
                         <el-menu anchor="bottom end" popover class="w-48 origin-top-right rounded-md bg-neutral-800 py-1 outline -outline-offset-1 outline-white/10 transition transition-discrete [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in">
                             <a href="#" class="block px-4 py-2 text-sm text-neutral-50 focus:bg-white/5 focus:outline-hidden" style="color: #3492F7">Myself</a>
                             <a href="#" class="block px-4 py-2 text-sm text-neutral-50 focus:bg-white/5 focus:outline-hidden" style="color: #3492F7">Settings</a>
-                            <a href="#" class="block px-4 py-2 text-sm text-neutral-50 focus:bg-white/5 focus:outline-hidden" style="color: #3492F7">Sign Out</a>
+                            <a href="backend/sign-out.php" class="block px-4 py-2 text-sm text-neutral-50 focus:bg-white/5 focus:outline-hidden" style="color: #3492F7">Sign Out</a>
                         </el-menu>
                     </el-dropdown>
                 </div>
@@ -129,8 +129,10 @@
 
     $page = basename($_GET['page'] ?? 'landing');
 
-    if ($page === 'landing') {
+    if (!$_SESSION['role']) {
         include 'landing_default.php';
+    } elseif($_SESSION['role'] === 'student') {
+        include 'landing_student.php';
     }
 
     ?>

@@ -3,7 +3,7 @@
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
+    <link rel="icon" type="image/x-icon" href="assets\favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
@@ -205,7 +205,7 @@
                                 <div class="mt-2">
                                     <select class="text-white" name="role-selection" id="roles">
                                         <option value="instructor">Instructor</option>
-                                        <option value="student">Student</option>
+                                        <option value="student" default>Student</option>
                                     </select>
                                 </div>
                             </div>

@@ -24,7 +24,7 @@ if (isset($_POST['sign-in'])) {
             $_SESSION['username'] = $data['user_name'];
             $_SESSION['id'] = $data['user_id'];
             $_SESSION['role'] = $data['user_role'];
-            echo "<script>window.location.href = '../index.php';</script>";
+            echo "<script>window.location.href = '../index.php?';</script>";
         } else {
             echo "
                     <script>
@@ -67,7 +67,7 @@ if (isset($_POST['sign-in'])) {
     $registUser = "INSERT INTO users(user_name, user_password, user_role) VALUES('$newUser', '$newHash', '$newRole')";
     $execRegistration = $connection -> query($registUser);
 
-    if ($registUser === TRUE) {
+    if ($execRegistration === TRUE) {
         echo "
                     <script>
                         alert('You are ready!');
