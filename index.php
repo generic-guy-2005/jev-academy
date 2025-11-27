@@ -1,9 +1,9 @@
 <?php
-    session_start();
-    if(!isset($_SESSION['id'])){
-        header("Location: login.php");
-        exit;
-    }
+session_start();
+if (!isset($_SESSION['id'])) {
+    header("Location: login.php");
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -86,8 +86,24 @@
                     <div class="hidden sm:ml-6 sm:block" style='width: 100%'>
                         <div class="flex justify-center content-center space-x-4">
                             <!-- Current: "bg-gray-950/50 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
-                            <a href="#" aria-current="page" class="rounded-md bg-blue-700 px-3 py-2 text-sm font-medium text-white">Dashboard</a>
-                            <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-cyan-500">Team</a>
+                            <a href="index.php?page=dashboard" aria-current="page" class="
+                                <?php
+                                if ($_GET['page'] === 'dashboard') {
+                                    echo "rounded-md bg-blue-700 px-3 py-2 text-sm font-medium text-white";
+                                } else {
+                                    echo "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-cyan-500";
+                                }
+                                ?>
+                            ">Dashboard</a>
+                            <a href="index.php?page=course/view" class="
+                                <?php
+                                if ($_GET['page'] === 'course/view') {
+                                    echo "rounded-md bg-blue-700 px-3 py-2 text-sm font-medium text-white";
+                                } else {
+                                    echo "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-cyan-500";
+                                }
+                                ?>
+                            ">Discovery</a>
                             <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-cyan-500">Projects</a>
                             <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-cyan-500">Calendar</a>
                         </div>
@@ -101,7 +117,7 @@
                             <span class="absolute -inset-1.5"></span>
                             <span class="sr-only">Open user menu</span>
                             <img src="assets/account_circle_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="" class="size-8 rounded-full bg-gray-800 outline -outline-offset-1 outline-white/10" />
-                            <p style="margin: 5px 10px 0px 10px; color: white;">Profile</p>
+                            <p style="margin: 5px 10px 0px 10px; color: white;"><?= $_SESSION['username'] ?></p>
                         </button>
 
                         <el-menu anchor="bottom end" popover class="w-48 origin-top-right rounded-md bg-neutral-800 py-1 outline -outline-offset-1 outline-white/10 transition transition-discrete [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in">
@@ -127,12 +143,18 @@
 
     <?php
 
-    $page = basename($_GET['page'] ?? 'landing');
+    $page = $_GET['page'] ?? 'dashboard';
 
-    if (!$_SESSION['role']) {
-        include 'landing_default.php';
-    } elseif($_SESSION['role'] === 'student') {
-        include 'landing_student.php';
+    $routes = [
+        'dashboard' => 'landing_default.php',
+        'course/view' => 'course/course_view.php',
+        'course/detail' => 'course/course_detail.php'
+    ];
+
+    if(array_key_exists($page, $routes)){
+        include $routes[$page];
+    } else {
+        echo "Error 404: Page Not Found";
     }
 
     ?>

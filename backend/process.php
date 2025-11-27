@@ -14,7 +14,7 @@ if (isset($_POST['sign-in'])) {
         echo "
                 <script> 
                     alert('User not found');
-                    window.location.href = 'login.php';
+                    window.location.href = '../login.php';
                 </script>
             ";
     } else {
@@ -24,7 +24,7 @@ if (isset($_POST['sign-in'])) {
             $_SESSION['username'] = $data['user_name'];
             $_SESSION['id'] = $data['user_id'];
             $_SESSION['role'] = $data['user_role'];
-            echo "<script>window.location.href = '../index.php?';</script>";
+            echo "<script>window.location.href = '../index.php?page=dashboard';</script>";
         } else {
             echo "
                     <script>

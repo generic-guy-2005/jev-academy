@@ -29,7 +29,7 @@
                     <i class="fas fa-paint-brush text-blue-600 text-2xl">
                         <img src="assets\renewable-energy.png" alt="">
                     </i>
-                </div>
+                </div>`
                 <h3 class="text-xl font-semibold text-white mb-2">Electrical Engineering</h3>
                 <p class="text-white text-sm">7 Programs | 200+ Courses</p>
             </div>
@@ -130,28 +130,9 @@
     </div>
 </section>
 
-<section class="py-16 bg-gray-50">
-    <div class="container mx-auto px-4">
-        <div class="flex flex-col md:flex-row justify-between items-center mb-8">
-            <h2 class="text-3xl font-bold text-gray-800 mb-4 md:mb-0">Our Most Popular Course</h2>
-            <div class="flex space-x-4">
-                <button class="px-6 py-2 rounded-full bg-blue-600 text-white font-semibold shadow-md">All Course</button>
-                <button class="px-6 py-2 rounded-full bg-white text-gray-700 border border-gray-300 hover:bg-gray-100">Featured Courses</button>
-                <button class="px-6 py-2 rounded-full bg-white text-gray-700 border border-gray-300 hover:bg-gray-100">Popular Courses</button>
-            </div>
-        </div>
-
-        <?php
-        include 'course/view_course.php';
-        ?>
-
-        <div class="text-center mt-10">
-            <button class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold shadow-lg hover:bg-blue-700 transition duration-300">
-                View More Courses
-            </button>
-        </div>
-    </div>
-</section>
+<?php
+include 'course/view_course.php';
+?>
 
 <section class="bg-gradient-to-r from-blue-600 to-indigo-700 py-12">
     <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between text-white text-center md:text-left">
