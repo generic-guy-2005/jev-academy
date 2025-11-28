@@ -148,7 +148,8 @@ if (!isset($_SESSION['id'])) {
     $routes = [
         'dashboard' => 'landing_default.php',
         'course/view' => 'course/course_view.php',
-        'course/detail' => 'course/course_detail.php'
+        'course/detail' => 'course/course_detail.php',
+        'course/material' => 'course/course_material.php'
     ];
 
     if(array_key_exists($page, $routes)){
