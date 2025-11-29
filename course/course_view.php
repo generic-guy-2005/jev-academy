@@ -124,9 +124,11 @@ $exec_course = $connection->query($course_query);
         if ($_GET['page'] === 'dashboard') {
         ?>
             <div class="text-center mt-10">
-                <button class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold shadow-lg hover:bg-blue-700 transition duration-300">
-                    View More Courses
-                </button>
+                <a href="index.php?page=course/view">
+                    <button class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold shadow-lg hover:bg-blue-700 transition duration-300">
+                        View More Courses
+                    </button>
+                </a>
             </div>
 
         <?php
