@@ -149,7 +149,9 @@ if (!isset($_SESSION['id'])) {
         'dashboard' => 'landing_default.php',
         'course/view' => 'course/course_view.php',
         'course/detail' => 'course/course_detail.php',
-        'course/material' => 'course/course_material.php'
+        'course/material' => 'course/course_material.php',
+        'payment' => 'payment/payment.php',
+        'payment/topup' => 'payment/topup.php'
     ];
 
     if(array_key_exists($page, $routes)){
