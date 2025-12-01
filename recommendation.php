@@ -40,7 +40,7 @@ if (isset($_SESSION['daily_course'])) {
                     <div>
                         <img src="<?= $currentCourse['course_image'] ?>"
                             alt="Course Thumbnail"
-                            class="w-full h-full object-cover">
+                            class="w-full h-64 object-cover">
                     </div>
 
                     <div class="flex flex-col justify-between p-6">

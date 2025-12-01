@@ -64,7 +64,6 @@ $background = $images[array_rand($images)];
                                     <span class="text-gray-700 text-sm"><?= $dataStudy['user_name'] ?></span>
                                 </div>
                                 <div class="flex justify-between items-center border-t border-gray-200 pt-4">
-                                    <div class="text-xl font-bold text-blue-600">Rp <?= number_format($dataStudy['course_cost'], '0', ',', '.') ?></div>
                                     <div class="flex items-center text-yellow-500">
                                         <i class="fas fa-star text-sm"></i>
                                         <span class="ml-1 text-gray-600 text-sm">(<?= round($dataStudy['course_rating']) ?>)</span>
