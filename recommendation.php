@@ -2,11 +2,11 @@
 include 'connection.php';
 $today = date('Y-m-d');
 
-if (!isset($_SESSION['daily_course']) || !isset($_SESSION['course_date']) !== $today|| $_SESSION['course_date'] !== $today) {
+if (!isset($_SESSION['daily_course']) || !isset($_SESSION['course_date']) || $_SESSION['course_date'] !== $today) {
     $queryRandom = "SELECT course_id 
-            FROM courses 
-            ORDER BY RAND()
-            LIMIT 1";
+        FROM courses 
+        ORDER BY RAND()
+        LIMIT 1";
     $execRandom = $connection->query($queryRandom);
 
     if ($execRandom && $execRandom->num_rows > 0) {
@@ -54,7 +54,7 @@ if (isset($_SESSION['daily_course'])) {
                         </div>
 
                         <div>
-                            <a href="#"
+                            <a href="index.php?page=course/detail&id=<?= $currentCourse['course_id'] ?>"
                                 class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300">
                                 View Course
                                 <i class="fas fa-arrow-right ml-2"></i>
