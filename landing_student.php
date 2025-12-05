@@ -37,7 +37,8 @@ $background = $images[array_rand($images)];
             INNER JOIN enrollment e ON u.user_id = e.enrollment_student_id
             INNER JOIN courses c ON e.enrollment_course_id = c.course_id
             INNER JOIN users u_instructor ON c.course_instruct_id = u_instructor.user_id
-            WHERE u.user_id = $currentUser;
+            WHERE u.user_id = $currentUser
+            LIMIT 3;
         ";
         $execStudy = $connection->query($queryStudy);
 
@@ -64,28 +65,28 @@ $background = $images[array_rand($images)];
                                     <span class="text-gray-700 text-sm"><?= $dataStudy['user_name'] ?></span>
                                 </div>
                                 <div class="flex justify-between items-center border-t border-gray-200 pt-4">
-                                    <div class="flex items-center text-yellow-500">
-                                        <i class="fas fa-star text-sm"></i>
-                                        <span class="ml-1 text-gray-600 text-sm">(<?= round($dataStudy['course_rating']) ?>)</span>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
                     </a>
-                <?php
+            <?php
                 }
-                ?>
-            </div>
+            }
+            ?>
 
-        <?php
-        }
-        ?>
-
-    </div>
+        </div>
+        <div class="text-center mt-10">
+            <a href="index.php?page=work/view">
+                <button class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold shadow-lg hover:bg-blue-700 transition duration-300">
+                    To Study
+                </button>
+            </a>
+        </div>
 </section>
 
 <section class="py-16 bg-gray-50">
-<?php
-include 'recommendation.php';
-?>
+    <?php
+    include 'recommendation.php';
+    ?>
 </section>
