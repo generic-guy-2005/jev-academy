@@ -24,6 +24,17 @@ if (isset($_POST['sign-in'])) {
             $_SESSION['username'] = $data['user_name'];
             $_SESSION['id'] = $data['user_id'];
             $_SESSION['role'] = $data['user_role'];
+            $current = $data['user_id'];
+            $_SESSION['user_image'] = $data['user_image'];
+
+            $query_wallet = "SELECT * FROM wallet WHERE wallet_user_id='$current'";
+            $exec_wallet = $connection->query($query_wallet);
+
+            if ($exec_wallet->num_rows === 0) {
+                $createWallet = "INSERT INTO wallet(wallet_user_id) VALUES ('$current')";
+                $execCreate = $connection -> query($createWallet);
+            }
+
             echo "<script>window.location.href = '../index.php?page=dashboard';</script>";
         } else {
             echo "
@@ -65,7 +76,7 @@ if (isset($_POST['sign-in'])) {
 
     $newHash = md5($newConfirm);
     $registUser = "INSERT INTO users(user_name, user_password, user_role) VALUES('$newUser', '$newHash', '$newRole')";
-    $execRegistration = $connection -> query($registUser);
+    $execRegistration = $connection->query($registUser);
 
     if ($execRegistration === TRUE) {
         echo "
@@ -74,7 +85,7 @@ if (isset($_POST['sign-in'])) {
                         window.location.href = '../login.php';
                     </script>
                 ";
-    } else{
+    } else {
         echo "
                     <script>
                         alert('Something went wrong!');
