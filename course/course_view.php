@@ -19,6 +19,22 @@ if (!empty($search)) {
 }
 
 $exec_course = $connection->query($course_query);
+
+if( isset($_SESSION['role']) && ($_SESSION['role'] === 'instructor' || $_SESSION['role'] === 'admin')) {
+?>
+
+<section class="mb-5 pt-4 bg-gray-50">
+    <div class="pt-6 pb-6 container mx-auto px-4">
+        <div class="md:flex-row justify-between items-center mb-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4 md:mb-0">Create Your Own Course</h2>
+            <p class="text-gray-500">Let you're student explore freely with your aid!</p>
+        </div>
+        <a href="index.php?page=course/create"><button class="px-6 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-400">Create</button></a>
+    </div>
+</section>
+
+<?php
+}
 ?>
 
 <section class="py-16 bg-gray-50">
@@ -37,7 +53,7 @@ $exec_course = $connection->query($course_query);
                         <!-- <input type="text" placeholder="Search courses..." class="px-6 py-2 rounded-full border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"> -->
                         <input type="text" name="search" value="<?= htmlspecialchars($search) ?>" placeholder="Search courses..." class="px-6 py-2 rounded-full border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
                         <button type="submit" class="ml-2 px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition duration-300">
-                            <i class="fas fa-search"><img src="assets\magnifying-glass.png" class="h-5" alt=""></i>
+                            <i class="fas fa-search"><img src="assets\magnifying-glass-white.png" class="h-5" alt=""></i>
                         </button>
                         <?php
                         if (!empty($search)): ?>
@@ -94,7 +110,16 @@ $exec_course = $connection->query($course_query);
                                     <div class="text-xl font-bold text-blue-600">Rp <?= number_format($data['course_cost'], 0, ',', '.') ?></div>
                                     <div class="flex items-center text-yellow-500">
                                         <i class="fas fa-star text-sm"></i>
-                                        <span class="ml-1 text-gray-600 text-sm">(<?= $data['course_rating'] ?>)</span>
+                                        <span class="ml-1 text-gray-600 text-sm">(
+                                            <?php
+                                            if($data['course_rating'] === null) {
+                                                echo '0';
+                                            } else {
+                                                echo round($data['course_rating'], 2);
+                                            }
+                                            ?>
+                                            )
+                                        </span>
                                     </div>
                                 </div>
                             </div>

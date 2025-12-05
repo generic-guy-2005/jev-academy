@@ -1,4 +1,9 @@
 <?php
+if (!isset($_SESSION['id'])) {
+    echo "<script>window.location.href='login.php';</script>";
+    exit;
+}
+
 include 'connection.php';
 
 $current_course = $_GET['id'];
@@ -19,30 +24,45 @@ $data_course = $exec_course->fetch_assoc();
             <div class="p-6">
                 <h1 class="text-3xl"><?= $data_course['course_name'] ?></h1>
                 <p class="pt-2"><?= $data_course['course_desc'] ?></p>
-                <a href="index.php?page=payment&id=<?= $current_course ?>"><button class="px-6 py-2 mt-2 rounded-full bg-blue-600 text-white hover:bg-blue-400">Enroll</button></a>
+
+                <div class="flex gap-2">
+                    <?php
+                    if ($exec_enrollment->num_rows === 0) {
+                    ?>
+                        <a href="index.php?page=payment&id=<?= $current_course ?>"><button class="px-6 py-2 mt-2 rounded-full bg-blue-600 text-white hover:bg-blue-400">Enroll</button></a>
+                    <?php
+                    } else {
+                    ?>
+                        <a href="index.php?page=work/view"><button class="px-6 py-2 mt-2 rounded-full bg-blue-600 text-white hover:bg-blue-400">To Study</button></a>
+                    <?php
+                    }
+                    ?>
+
+                    <a href="javascript:history.back()"><button class="px-6 py-2 mt-2 rounded-full bg-gray-600 text-white hover:bg-gray-400">Back</button></a>
+                </div>
             </div>
         </div>
         <div class="bg-white p-6 rounded-xl shadow">
             <h1 class="text-xl">Content Preview</h1>
 
             <?php
-            while($data_section = $exec_section -> fetch_assoc()){
+            while ($data_section = $exec_section->fetch_assoc()) {
             ?>
 
-            <div class="bg-oklch(43.9% 0 0) p-6 rounded-xl shadow grid grid-cols-[2fr_1fr]">
-                <p class="flex items-center"><?= $data_section['section_name'] ?></p>
+                <div class="bg-oklch(43.9% 0 0) p-6 rounded-xl shadow grid grid-cols-[2fr_1fr]">
+                    <p class="flex items-center"><?= $data_section['section_name'] ?></p>
 
-                <?php
-                if($exec_enrollment -> num_rows > 0) {
-                ?>
+                    <?php
+                    if ($exec_enrollment->num_rows > 0) {
+                    ?>
 
-                <button class="px-6 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-400" onclick="window.location.href='index.php?page=course/material'">View</button>
-                    
-                <?php
-                }
-                ?>
-            
-            </div>
+                        <button class="px-6 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-400" onclick="window.location.href='index.php?page=course/material&id=<?= $current_course ?>&section=<?= $data_section['section_id'] ?>'">View</button>
+
+                    <?php
+                    }
+                    ?>
+
+                </div>
 
             <?php
             }
