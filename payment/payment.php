@@ -1,4 +1,8 @@
 <?php
+include 'connection.php';
+$current_course = $_GET['id'];
+$current_user = $_SESSION['id'];
+
 $images = [
     "assets/ABSTRACT MODERN MOSAIC WALLPAPER 4K.jpg",
     "assets/Modern tech background with geometric shapes_ vector illustration _ Premium Vector.jpg",
@@ -9,15 +13,12 @@ $images = [
 
 $background = $images[array_rand($images)];
 
-include 'connection.php';
-$current_course = $_GET['id'];
-$current_user = $_SESSION['id'];
-$query_course = "SELECT * FROM courses WHERE course_id='$current_course'";
 $query_wallet = "SELECT * FROM wallet WHERE wallet_user_id='$current_user'";
-$exec_course = $connection->query($query_course);
 $exec_wallet = $connection->query($query_wallet);
-$data_course = $exec_course->fetch_assoc();
 $data_wallet = $exec_wallet->fetch_assoc();
+$query_course = "SELECT * FROM courses WHERE course_id='$current_course'";
+$exec_course = $connection->query($query_course);
+$data_course = $exec_course->fetch_assoc();
 ?>
 
 <section class="p-16 mb-64 bg-gray-50">
@@ -29,7 +30,8 @@ $data_wallet = $exec_wallet->fetch_assoc();
             <p class="absolute top-55 left-20 text-white"><span class="text-2xl">Rp</span><span class="text-4xl"> <?= number_format($data_wallet['wallet_balance'], 0, ',', '.') ?></span></p>
         </div>
         <div class="bg-white p-6 rounded-xl shadow">
-            <h1 class="text-2xl">Payment Detail</h1> <hr>
+            <h1 class="text-2xl">Payment Detail</h1>
+            <hr>
             <h2 class="text-xl"><?= $data_course['course_name'] ?></h2>
 
             <div class="mt-5 text-center ml-20 mr-20 pl-10 pr-10">
