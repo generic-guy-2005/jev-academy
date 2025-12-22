@@ -59,7 +59,7 @@ try {
     $connection->begin_transaction();
     error_log("Transaction started");
 
-    // Delete lessons associated with this course
+    // Delete lessons 
     $delete_lessons_sql = "DELETE FROM lessons 
         WHERE lesson_section_id IN (
         SELECT section_id FROM sections WHERE section_course_id = $course_id
@@ -69,7 +69,7 @@ try {
     }
     error_log("Lessons deleted successfully");
 
-    // Delete sections associated with this course
+    // Delete sections 
     $delete_sections_sql = "DELETE FROM sections WHERE section_course_id = $course_id";
     error_log("Deleting sections SQL: " . $delete_sections_sql);
 
@@ -78,7 +78,7 @@ try {
     }
     error_log("Sections deleted successfully");
 
-    // Delete enrollments associated with this course
+    // Delete enrollments 
     $delete_enrollments_sql = "DELETE FROM enrollment WHERE enrollment_course_id = $course_id";
     error_log("Deleting enrollments SQL: " . $delete_enrollments_sql);
 

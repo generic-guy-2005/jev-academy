@@ -163,7 +163,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 const section = uploadArea.closest('.section-item');
                 const fileInput = section.querySelector('.section-file-input');
 
-                // Create a DataTransfer object to set files to the input
                 const dataTransfer = new DataTransfer();
                 dataTransfer.items.add(files[0]);
                 fileInput.files = dataTransfer.files;
@@ -197,14 +196,14 @@ document.addEventListener('DOMContentLoaded', function () {
         previewArea.classList.remove('hidden');
     }
 
-    // Add script to handle "Change Image" button
+    // Change image
     document.getElementById('changeImageBtn')?.addEventListener('click', function () {
         document.getElementById('currentImageArea').classList.add('hidden');
         document.getElementById('uploadArea').classList.remove('hidden');
         document.getElementById('keep_current_image').value = '0';
     });
 
-    // Add script to handle "Change File" buttons for sections
+    // Change file
     document.querySelectorAll('.change-file-btn').forEach(btn => {
         btn.addEventListener('click', function () {
             const sectionItem = this.closest('.section-item');
@@ -214,7 +213,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Handle section removal
+    // Remove
     document.querySelectorAll('.remove-section-btn').forEach(btn => {
         btn.addEventListener('click', function () {
             if (confirm('Are you sure you want to remove this section?')) {

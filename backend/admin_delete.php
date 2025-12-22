@@ -8,9 +8,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param("i", $course_id);
 
     if ($stmt->execute()) {
-        echo "OK";   // send success response to JS
+        echo "OK";   
     } else {
-        echo "ERR";  // send error response
+        echo "ERR"; 
     }
 }
 ?>

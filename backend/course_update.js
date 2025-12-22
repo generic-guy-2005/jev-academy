@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
             sectionIdsArray.push(sectionId);
             keepCurrentFilesArray.push(parseInt(keepCurrentFile));
 
-            // Check if there's a new file uploaded
+            // Validate
             if (fileInput.files.length > 0) {
                 formData.append(`section_file_${index}`, fileInput.files[0]);
                 sectionFilesIndexes.push(index);
@@ -89,7 +89,6 @@ document.addEventListener('DOMContentLoaded', function () {
         formData.append('section_files_indexes', JSON.stringify(sectionFilesIndexes));
         formData.append('keep_current_files', JSON.stringify(keepCurrentFilesArray));
 
-        // Disable button and show loading
         const updateBtn = this;
         updateBtn.disabled = true;
         updateBtn.textContent = 'Updating...';

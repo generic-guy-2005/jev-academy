@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .then(response => response.json())
         .then(data => {
-            // Show message
             alert(data.message);
 
             if (data.status === "success") {

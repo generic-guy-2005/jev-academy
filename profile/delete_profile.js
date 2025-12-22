@@ -27,7 +27,6 @@ function deleteAccount() {
         .then(data => {
             if (data === 'success') {
                 alert('Your account has been successfully deleted.');
-                // Redirect to login or home page
                 window.location.href = 'login.php';
             } else {
                 alert('Error deleting account. Please try again or contact support.');

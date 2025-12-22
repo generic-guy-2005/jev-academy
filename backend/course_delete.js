@@ -1,11 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Add this with other variables at the top
     const deleteCourseBtn = document.getElementById('deleteCourseBtn');
 
-    // Add this with other event listeners
     if (deleteCourseBtn) {
         deleteCourseBtn.addEventListener('click', function () {
-            // Get course ID from URL
+            // Get course ID 
             const urlParams = new URLSearchParams(window.location.search);
             const courseId = urlParams.get('id');
 
@@ -29,13 +27,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 method: 'GET'
             })
                 .then(response => {
-                    // First, get the raw response text
+                    
                     return response.text().then(text => {
                         console.log('Raw response text:', text);
                         console.log('Response status:', response.status);
                         console.log('Response headers:', response.headers);
 
-                        // Try to parse as JSON
                         try {
                             const data = JSON.parse(text);
                             console.log('Parsed JSON:', data);

@@ -29,12 +29,11 @@ function deleteAccount() {
         .then(data => {
             console.log('Response:', data); // Debug log
 
-            // Clean the response (remove any whitespace)
+            // Clean the response 
             data = data.trim();
 
             if (data === 'success') {
                 alert('Your account has been successfully deleted.');
-                // Redirect to login page
                 window.location.href = 'index.php?page=auth/login';
             } else if (data === 'forbidden') {
                 alert('Admin accounts cannot be deleted.');

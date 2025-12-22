@@ -45,7 +45,7 @@ if (isset($_POST['id'])) {
 
         if ($userRole === "student") {
 
-            // Get wallet ID (if any)
+            // Get wallet ID
             $walletQ = "SELECT wallet_id FROM wallet WHERE wallet_user_id = $id";
             $walletR = mysqli_query($connection, $walletQ);
             error_log("Wallet query for user ID $id: " . $walletQ);
@@ -54,11 +54,11 @@ if (isset($_POST['id'])) {
                 $walletData = mysqli_fetch_assoc($walletR);
                 $walletID = $walletData['wallet_id'];
 
-                // Delete payments referencing wallet
+                // Delete payments 
                 mysqli_query($connection, "DELETE FROM payment WHERE payment_wallet = $walletID");
                 error_log("Deleted payments for wallet ID $walletID");
 
-                // Delete topups referencing wallet
+                // Delete topups 
                 mysqli_query($connection, "DELETE FROM topup WHERE topup_wallet_id = $walletID");
                 error_log("Deleted topups for wallet ID $walletID");
 
@@ -125,7 +125,7 @@ if (isset($_POST['id'])) {
             }
         }
 
-        // Delete from users last
+        // Delete user
         mysqli_query($connection, "DELETE FROM users WHERE user_id = $id");
         error_log("Deleted user ID $id");
 

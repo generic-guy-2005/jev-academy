@@ -22,7 +22,7 @@ $result = $stmt->get_result()->fetch_assoc();
 $user_image = $result['user_image'] ?? null;
 $user_role = $result['user_role'] ?? null;
 
-// Prevent admin deletion (optional)
+// Admin kebal hukum
 if ($user_role === 'admin') {
     echo "forbidden";
     error_log("Admin account cannot be deleted: " . $user_id);
@@ -65,7 +65,7 @@ try {
     $stmt->execute();
     error_log("Deleted wallet for user_id: " . $user_id);
 
-    // Delete enrollments (if student)
+    // Delete enrollments (student saja)
     $sql = "DELETE FROM enrollment WHERE enrollment_student_id = ?";
     $stmt = $connection->prepare($sql);
     $stmt->bind_param("i", $user_id);
@@ -79,20 +79,15 @@ try {
     $stmt->execute();
     error_log("Deleted user: " . $user_id);
 
-    // Commit transaction
     $connection->commit();
 
-    // Delete profile picture file
     if ($user_image && file_exists("../upload/profile/" . $user_image)) {
         if (unlink("../upload/profile/" . $user_image)) {
             error_log("Deleted profile picture: " . $user_image);
         }
     }
 
-    // Destroy session
     session_destroy();
-
-    // Return success - JavaScript will handle redirect
     echo "success";
     error_log("Account successfully deleted for user_id: " . $user_id);
 } catch (Exception $e) {

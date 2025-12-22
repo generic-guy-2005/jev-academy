@@ -29,15 +29,14 @@ try {
 
     error_log("Course info parsed successfully");
 
-    // El gambarnya - FIXED: Compare with string '0'
+    // El gambarnya
     $update_image = false;
     $course_image = '';
 
-    // FIXED: Check if keep_current_image is set and equals string '0'
+    // FIXED
     if (isset($_POST['keep_current_image']) && $_POST['keep_current_image'] == '0') {
         error_log("Keep current image is 0, processing image update");
 
-        // First check if uploading a file
         if (isset($_FILES['course_image']) && $_FILES['course_image']['error'] === UPLOAD_ERR_OK) {
             error_log("Processing image upload");
 
@@ -59,23 +58,21 @@ try {
             $update_image = true;
             error_log("Image uploaded successfully: " . $course_image);
         }
-        // Check if using default image (from image_type parameter)
+        // default
         else if (isset($_POST['image_type']) && $_POST['image_type'] === 'default') {
             $course_image = 'assets/default-course-image.jpg';
             $update_image = true;
             error_log("Using default image");
         }
-        // If no file and not default, keep current image (don't update image field)
+        // keep image
         else {
             error_log("No new image selected, keeping current image");
-            // Don't update the image field
         }
     } else {
         error_log("Keeping current image (keep_current_image = " . $_POST['keep_current_image'] . ")");
-        // Don't update the image field
     }
 
-    // Build SQL query - FIXED: Only include course_image if we're updating it
+    // FIXED
     $sql = "UPDATE courses SET 
             course_name = '$course_name', 
             course_field = '$course_field', 
@@ -97,14 +94,12 @@ try {
 
     error_log("Course updated successfully!");
 
-    // ... rest of the code remains the same ...
-
     // Commit transaction
     $connection->commit();
     error_log("Transaction committed successfully");
     echo json_encode(['success' => true, 'message' => 'Course updated successfully']); // Changed from 'created' to 'updated'
 } catch (Exception $e) {
-    // Rollback on error
+    // Rollback
     $connection->rollback();
     error_log("Error occurred: " . $e->getMessage());
     error_log("Stack trace: " . $e->getTraceAsString());

@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     sectionsContainer.addEventListener('click', (e) => {
-        // Click upload area to trigger file input
+        // Click upload area
         if (e.target.closest('.section-upload-area')) {
             const section = e.target.closest('.section-item');
             const fileInput = section.querySelector('.section-file-input');
@@ -176,7 +176,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 const section = uploadArea.closest('.section-item');
                 const fileInput = section.querySelector('.section-file-input');
 
-                // Create a DataTransfer object to set files to the input
                 const dataTransfer = new DataTransfer();
                 dataTransfer.items.add(files[0]);
                 fileInput.files = dataTransfer.files;
